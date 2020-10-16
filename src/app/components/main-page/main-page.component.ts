@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TimeTable} from 'src/app/models/time-table'
+import {HomeServiceService} from 'src/app/service/home-service.service'
 
 @Component({
   selector: 'app-main-page',
@@ -9,10 +10,10 @@ import {TimeTable} from 'src/app/models/time-table'
 export class MainPageComponent implements OnInit {
   timeTable = TimeTable;
   hour: any;
-  second:any;
+  
   
 
-  constructor() { }
+  constructor(private homeServics:HomeServiceService) { }
 
   ngOnInit(): void {
 
@@ -27,6 +28,7 @@ export class MainPageComponent implements OnInit {
 
   private updateDate(date){
     this.hour = date.getHours();
+    this.homeServics.setDate(date)
     this.OverTime(this.hour)
   }
 
@@ -34,7 +36,7 @@ export class MainPageComponent implements OnInit {
     let data = this.timeTable.find(element => element.value == item.value)
     if(event.checked){
       data.checked = true
-      console.log(data)
+      //console.log(data)
     }else{
       data.checked = false
     }

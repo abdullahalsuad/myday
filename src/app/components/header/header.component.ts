@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeServiceService } from 'src/app/service/home-service.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  date:String;
 
-  constructor() { }
+  constructor(private homeServics:HomeServiceService) { }
 
   ngOnInit(): void {
+    setInterval(()=>{
+      this.date = this.homeServics.getDate().toString()
+      //this.updateDate.split("T",2)[0]
+      this.date = this.date.split("G",2)[0]
+    },1000)
+    
   }
 
 }

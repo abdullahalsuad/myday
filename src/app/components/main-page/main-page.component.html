@@ -1,0 +1,43 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                What To Do
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+    </thead>
+</table>
+<div *ngFor="let item of timeTable">
+    <mat-card class="my-2">
+        <table class="table">
+            <tbody>
+                <tr [ngStyle]="{'background-color': item.checked ? 'lime' : ''}">
+                    <!-- [ngStyle]="{'background-color': item.checked && item.over? 'lime' : '', 'background-color': item.over? '#00ffcc' : ''}" -->
+                    <td>
+                        <mat-checkbox class="" (change)="onChange(item, $event)">Check me!</mat-checkbox>
+                        
+                    </td>
+                    <td>
+                        {{item.time}}
+                    </td>
+                    <td>
+                        {{item.do}}
+                    </td>
+                    <td>
+                        
+                        <button mat-raised-button [color]="item.over?'warn':'primary'" >{{item.status}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </mat-card>
+</div>

@@ -1,45 +1,17 @@
-<div class="container-fluid main">
+<div class="container-fluid main"  >
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-            </th>
-            <th>
-                Time
-            </th>
-            <th>
-                What To Do
-            </th>
-            <th>
-                Status
-            </th>
-        </tr>
-    </thead>
-</table>
 <div *ngFor="let item of timeTable">
-    <mat-card class="my-2">
-        <table class="table">
-            <tbody>
-                <tr [ngStyle]="{'background-color': item.checked ? 'lime' : ''}">
-                    <!-- [ngStyle]="{'background-color': item.checked && item.over? 'lime' : '', 'background-color': item.over? '#00ffcc' : ''}" -->
-                    <td>
-                        <mat-checkbox class="" (change)="onChange(item, $event)">Check me!</mat-checkbox>
-                        
-                    </td>
-                    <td>
-                        {{item.time}}
-                    </td>
-                    <td>
-                        {{item.do}}
-                    </td>
-                    <td>
-                        
-                        <button mat-raised-button [color]="item.over?'warn':'primary'" >{{item.status}}</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <mat-card class="my-2" id="card" [ngStyle]="{'background-color': item.checked ? 'lime' : ''}" >
+        
+         <!-- [ngStyle]="{'background-color': item.checked && item.over? 'lime' : '', 'background-color': item.over? '#00ffcc' : ''}"  -->
+             
+
+        <div class="row" >
+            <div class="col-md-3"><mat-checkbox class="" (change)="onChange(item, $event)">Check me!</mat-checkbox></div>
+            <div class="col-md-3"> {{item.time}}</div>
+            <div class="col-md-3">{{item.do}}</div>
+            <div class="col-md-3"><button mat-raised-button [color]="item.over?'warn':'primary'" >{{item.status}}</button></div>
+        </div>
         
     </mat-card>
 </div>

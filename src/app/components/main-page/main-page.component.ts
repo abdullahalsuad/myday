@@ -10,6 +10,7 @@ import {HomeServiceService} from 'src/app/service/home-service.service'
 export class MainPageComponent implements OnInit {
   timeTable = TimeTable;
   hour: any;
+  percent:number;
   
   
 

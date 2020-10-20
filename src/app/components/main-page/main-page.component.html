@@ -12,6 +12,12 @@
             <div class="col-md-3">{{item.do}}</div>
             <div class="col-md-3"><button mat-raised-button [color]="item.over?'warn':'primary'" >{{item.status}}</button></div>
         </div>
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center pt-2" *ngIf="((hour-item.start)/(item.end-item.start))*100 >0">
+                <mat-progress-bar  style="max-width: 50%;" mode="determinate" value="{{((hour-item.start)/(item.end-item.start))*100}}"></mat-progress-bar>
+            </div>
+        </div>
+        
         
     </mat-card>
 </div>

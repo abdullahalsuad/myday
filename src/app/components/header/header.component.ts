@@ -7,17 +7,27 @@ import { HomeServiceService } from 'src/app/service/home-service.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  date:String;
+  date:any;
+  hours:any;
+  minutes:any;
+  seconds:any;
 
-  constructor(private homeServics:HomeServiceService) { }
+
+  constructor(private homeServics:HomeServiceService) {
+    setInterval(()=>{
+      this.date = this.homeServics.getDate()
+      //this.updateDate.split("T",2)[0]
+      // this.date = this.date.split("G",2)[0]
+      this.hours = this.date.getHours();
+      this.minutes = this.date.getMinutes();
+      this.seconds = this.date.getSeconds();
+    },1000)
+   }
 
   ngOnInit(): void {
-    setInterval(()=>{
-      this.date = this.homeServics.getDate().toString()
-      //this.updateDate.split("T",2)[0]
-      this.date = this.date.split("G",2)[0]
-    },1000)
+    
     
   }
+
 
 }

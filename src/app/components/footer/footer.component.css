@@ -1,7 +1,8 @@
 a{
      color: white;   
 }
-
-a:hover{
-    color: red;
+textarea{
+    width: 100px;
 }
+
+

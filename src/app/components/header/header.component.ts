@@ -25,8 +25,12 @@ export class HeaderComponent implements OnInit {
       
       if(this.hours > 12){
         this.hours = this.hours - 12;
-        this.ampm ="PM"
     }
+
+    if(this.hours >= 12){
+      this.ampm ="PM"
+  }
+
      
      this.hours = (this.hours < 10) ? "0" + this.hours : this.hours
      this.minutes = (this.minutes < 10) ? "0" + this.minutes : this.minutes

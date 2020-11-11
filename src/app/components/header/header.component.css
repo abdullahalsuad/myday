@@ -70,8 +70,12 @@
     #clock #time div:last-child span{
         background: #ff006a;
     }
-    #clock #time div:last-child span:nth-child(2){
-        background:#ec0062;
+    #clock #time div:last-child span:nth-child(1){   
+        position: absolute;
+        bottom: 0;
+        width: 70px;
+        height: 50px;
+        font-size:1.3em ;
     }
 
 

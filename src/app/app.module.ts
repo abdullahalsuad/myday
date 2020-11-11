@@ -6,14 +6,16 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from 'src/app/material/material.module';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component'
+import { FooterComponent } from './components/footer/footer.component';
+import { TeamComponent } from './components/team/team.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,

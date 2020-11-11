@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   hours:any;
   minutes:any;
   seconds:any;
+  ampm="AM";
 
 
   constructor(private homeServics:HomeServiceService) {
@@ -21,6 +22,15 @@ export class HeaderComponent implements OnInit {
       this.hours = this.date.getHours();
       this.minutes = this.date.getMinutes();
       this.seconds = this.date.getSeconds();
+      
+      if(this.hours > 12){
+        this.hours = this.hours - 12;
+        this.ampm ="PM"
+    }
+     
+     this.hours = (this.hours < 10) ? "0" + this.hours : this.hours
+     this.minutes = (this.minutes < 10) ? "0" + this.minutes : this.minutes
+     this.seconds = (this.seconds < 10) ? "0" + this.seconds : this.seconds
     },1000)
    }
 
